@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Smart City Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
+<body class="default-theme"> <div class="container">
+        <header>
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <button id="search-btn">Search</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="current-weather" class="weather-card">
+                <h1 id="city-name">Loading...</h1>
+                <div class="weather-info">
+                    <img id="weather-icon" src="" alt="weather icon">
+                    <h2 id="temperature">--°C</h2>
+                    <p id="description">Search for a city to see the weather!</p>
+                </div>
+                
+                <div id="smart-advice" class="advice-box">
+                    <h3>💡 Smart Suggestion</h3>
+                    <p id="clothing-advice">Enter a city to get clothing tips.</p>
+                </div>
+            </section>
+
+            <section id="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="controls">
+                    <button onclick="sortForecast('asc')">Sort by Temp ↑</button>
+                    <button onclick="filterRain()">Show Rain Only</button>
+                </div>
+                <div id="forecast-container" class="forecast-grid">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="weather-effects"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>

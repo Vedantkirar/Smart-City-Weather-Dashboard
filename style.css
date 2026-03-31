@@ -1,0 +1,224 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    transition: background 0.8s ease; /* Smooth transition for UI changes */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c3e50; /* Default Dark Theme */
+    color: white;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1); /* Keep it light */
+    backdrop-filter: blur(12px); /* Stronger blur makes text pop */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    border-radius: 24px;
+    z-index: 10; /* Ensures container is always above the rain */
+}
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+#city-input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+#search-btn {
+    padding: 12px 24px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Forecast Grid */
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.advice-box {
+    background: rgba(255, 255, 255, 0.15); /* Slightly lighter for contrast */
+    padding: 30px; /* Increased from 15px */
+    border-radius: 15px;
+    margin-top: 30px;
+    border-left: 8px solid #f1c40f; /* Thicker accent line */
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-height: 120px; /* Ensures it feels "Big" even with short text */
+}
+
+.advice-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #f1c40f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#clothing-advice {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* --- SUNNY THEME with a "Popping Sun" --- */
+.sunny-theme {
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sunny-theme::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #f1c40f, #f39c12);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #f1c40f;
+    animation: sun-float 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes sun-float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, 20px); }
+}
+
+/* --- RAINY THEME --- */
+.rainy-theme::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Layer 1: Bright Blue | Layer 2: Deeper Blue */
+    background-image: 
+        radial-gradient(circle at 50% 50%, #3498db 1.5px, transparent 2px),
+        radial-gradient(circle at 20% 20%, #2980b9 1.2px, transparent 2px);
+    
+    /* HORIZONTAL (80px): Huge gap so they don't form lines 
+       VERTICAL (120px): Vertical distance between falling drops 
+    */
+    background-size: 80px 120px;
+    
+    animation: rain-fall 0.5s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+@keyframes rain-fall {
+    0% {
+        transform: translateY(-120px);
+    }
+    100% {
+        transform: translateY(120px);
+    }
+}
+/* The Falling Animation */
+@keyframes rain-fall {
+    0% {
+        transform: translateY(0);
+        background-position: 0 0;
+    }
+    100% {
+        transform: translateY(100px);
+        background-position: 20px 500px; /* Moves drops slightly diagonally */
+    }
+}
+
+@keyframes rain-fall {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(50px); }
+}
+
+/* --- CLOUDY THEME with Drifting Clouds --- */
+/* --- CLOUDY THEME --- */
+.cloudy-theme {
+    background: linear-gradient(to bottom, #757f9a, #d7dde8); /* Soft Grey-Blue */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Layer 1: Large, slow-moving clouds */
+.cloudy-theme::before {
+    content: "☁️ ☁️ ☁️ ☁️";
+    font-size: 180px;
+    position: fixed;
+    top: 5%;
+    left: -200px;
+    opacity: 0.25;
+    white-space: nowrap;
+    word-spacing: 200px;
+    animation: cloud-drift-slow 40s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Layer 2: Smaller, slightly faster clouds for depth */
+.cloudy-theme::after {
+    content: "☁️ ☁️ ☁️ ☁️ ☁️";
+    font-size: 120px;
+    position: fixed;
+    top: 40%;
+    left: -150px;
+    opacity: 0.15;
+    white-space: nowrap;
+    word-spacing: 150px;
+    animation: cloud-drift-fast 25s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Slow Drift Animation */
+@keyframes cloud-drift-slow {
+    from { transform: translateX(0); }
+    to { transform: translateX(110vw); }
+}
+
+/* Faster Drift Animation */
+@keyframes cloud-drift-fast {
+    from { transform: translateX(0); }
+    to { transform: translateX(120vw); }
+}
+/* --- WINDY / MIST THEME --- */
+.windy-theme {
+    background: linear-gradient(to bottom, #757f9a, #d7dde8);
+}
+
+.windy-theme::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* We use a semi-transparent white wash instead of heavy blur */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(1.5px); /* Reduced blur significantly */
+    pointer-events: none;
+    z-index: -1; /* Moves the mist BEHIND the container */
+}
+}
