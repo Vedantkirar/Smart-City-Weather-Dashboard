@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Weather App</title>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="main-container">
-        <h1>Weather Checker</h1>
+        <h1>Weather Dashboard</h1>
         
         <div class="search-area">
             <input type="text" id="cityInput" placeholder="Enter city name">
-            <button id="searchBtn">Get Weather</button>
+            <button id="searchBtn">Search</button>
         </div>
 
-        <div id="weatherResult">
-            <p>Search for a city to see results.</p>
+        <div class="controls" style="margin-top: 10px;">
+            <button id="sortBtn">Sort by Temp</button>
+            <button id="filterHotBtn">Hot Days (>20°C)</button>
+            <button id="resetBtn">Show All</button>
         </div>
+
+        <div id="forecastContainer"></div>
     </div>
 
     <script src="script.js"></script>
