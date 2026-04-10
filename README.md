@@ -1,24 +1,16 @@
-# 🌆 Smart City Weather Dashboard
+# Smart City Weather Dashboard
 
-## 🎯 Project Objective
-The **Smart City Weather Dashboard** is a high-end web application built to demonstrate advanced JavaScript logic, API integration, and responsive UI design. Beyond standard temperature reporting, this app provides "Smart Living" advice (What to Wear) and features a completely transformative UI that mimics real-world weather conditions.
+A modern, interactive weather application built with Vanilla JavaScript, HTML, and CSS. This project fetches real-time 5-day forecast data from the OpenWeatherMap API.
 
-## 🛠️ Tech Stack
-- **Frontend:** HTML, CSS (Advanced Animations & Flexbox/Grid)
-- **Logic:** Vanilla JavaScript 
-- **API:** [OpenWeatherMap API](https://openweathermap.org/api)
-- **Deployment:** Vercel / Netlify / GitHub Pages
+## 🚀 Features
+- **Real-time Search:** Search for any city globally to get current weather and a 5-day forecast.
+- **Sorting:** Sort the forecast by temperature (High to Low) using Array `.sort()`.
+- **Filtering:** Filter for "Hot Days" (above 20°C) using Array `.filter()`.
+- **Responsive Design:** A glassmorphism-inspired UI that works across devices.
+- **Dynamic Rendering:** Used Array `.map()` to generate weather cards without traditional loops.
 
-## 🚀 Core Features (Planned)
-- **Dynamic Immersive UI:** The entire theme (backgrounds, icons, and animations) changes based on weather (e.g., falling rain, drifting clouds, glowing sun).
-- **Smart Advice Engine:** Tailored "What to Wear" suggestions based on temperature and weather conditions.
-- **5-Day Forecast:** A detailed breakdown of the upcoming week's weather.
-- **Unit Toggle:** Switch seamlessly between Celsius and Fahrenheit.
-- **Search History:** Persists the last searched city.
-
-## ⚙️ JavaScript Higher-Order Functions (HOFs)
-To comply with Milestone 3 requirements, this project will utilize:
-- `.filter()`: To isolate specific weather conditions in the forecast.
-- `.sort()`: To arrange the forecast by temperature (High to Low).
-- `.map()`: To dynamically render weather cards from the API response.
-
+## 🛠️ Built With
+- **HTML:** Semantic structure.
+- **CSS:** Custom styles including Glassmorphism and Responsive Design.
+- **JavaScript** Fetch API, Promises, and Higher-Order Functions.
+- **OpenWeatherMap API:** Data source for weather information.
